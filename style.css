@@ -122,8 +122,8 @@
 
     #Z h3, #neZ h3 {
         position: absolute;
-        font-family: 'Rock Salt', cursive;
         left: 35px;
+        text-transform: uppercase;
     }
 
 #Z
