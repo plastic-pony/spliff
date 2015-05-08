@@ -52,7 +52,7 @@ function load_question() {
         //$("#next").attr("onclick", "redo()");
 
         if (brojacZ >= 5) {
-            window.location.href = "Z.html";
+            window.location.href = "Z.php";
         }
         else {
             $("#neZ").show();
