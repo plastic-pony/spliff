@@ -120,6 +120,12 @@
     width: 601px;
 }
 
+    #Z h3, #neZ h3 {
+        position: absolute;
+        font-family: 'Permanent Marker', cursive;
+        left: 35px;
+    }
+
 #Z
 {
     background-image: url(images/z.jpg);    

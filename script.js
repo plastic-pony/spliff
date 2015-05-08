@@ -52,10 +52,11 @@ function load_question() {
         $("#next").attr("onclick", "redo()");
 
         if (brojacZ >= 5) {
-            $("#Z").show();
+            $("#Z").show().append("<h3>Bravo! Zdravka si!</h3>");
+
         }
         else {
-            $("#neZ").show();
+            $("#neZ").show().append("<h3>Bravo! Nisi Zdravka!</h3>");
         }
     }
 };
