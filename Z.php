@@ -1,10 +1,11 @@
-﻿
+
 <!DOCTYPE html>
 <head>
     <title></title>
 
     <link rel="canonical" href="https://apps.facebook.com/spliff_zabavni_kviz">
     <meta property="og:url" content="https://apps.facebook.com/spliff_zabavni_kviz">
+    <meta property="og:type" content="kviz" />
     <meta property="og:title" content="Spliff zabavni kviz!" />
     <meta property="og:description" content="Rješi Spliff - Zabavni Kviz i otkrij koji si ti član Spliffa! --> Ja sam Zdravka!" />
     <meta property="fb:app_id" content="747185868693965" />

