@@ -23,7 +23,7 @@ div { padding: 10px; }
       version        : 'v2.0',  // Specify an API version
     });
 
-    // Put additional init code here
+    postLike();
   };
 
   // Load the SDK Asynchronously
@@ -105,13 +105,6 @@ That story will just say
 that you like an
 <a href="https://spliff.herokuapp.com/Z.php">
 article on TechCrunch</a>.
-</div>
-
-<div>
-<input
-  type="button"
-  value="Create a story with an og.likes action"
-  onclick="postLike();">
 </div>
 
 <div id="result"></div>
