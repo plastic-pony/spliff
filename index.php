@@ -24,8 +24,6 @@
                 // social plugins like login button below
                 version: 'v2.0',  // Specify an API version
             });
-
-            postLike();
         };
 
         // Load the SDK Asynchronously
