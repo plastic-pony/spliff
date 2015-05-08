@@ -46,13 +46,13 @@ function load_question() {
         trenutnoPitanje++;
     }
     else {
-        $("#question-holder").empty();
-        $("#bkg").css("background-image", "url(images/end.jpg)");
-        $("#next").css("background-image", "url(images/redo.png)");
-        $("#next").attr("onclick", "redo()");
+        //$("#question-holder").empty();
+        //$("#bkg").css("background-image", "url(images/end.jpg)");
+        //$("#next").css("background-image", "url(images/redo.png)");
+        //$("#next").attr("onclick", "redo()");
 
         if (brojacZ >= 5) {
-            $("#Z").show();
+            window.location.href = "Z.html";
         }
         else {
             $("#neZ").show();
