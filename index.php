@@ -1,60 +1,89 @@
-
-<!DOCTYPE html>
+<html>
 <head>
-    <title></title>
-    
-    <link rel="canonical" href="https://apps.facebook.com/spliff_zabavni_kviz">
-    <meta property="og:url" content="https://apps.facebook.com/spliff_zabavni_kviz">
-    <meta property="og:title" content="Spliff zabavni kviz!" />
-    <meta property="og:description" content="Rješi Spliff - Zabavni Kviz i otkrij koji si ti član Spliffa!" />
-    <meta property="fb:app_id" content="747185868693965" />
-    <meta property="article:publisher" content="https://www.facebook.com/spliff.the.band" />
-    <meta property="og:image" content="http://imgur.com/TnAZXHk.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="627">
-    
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="data.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+<title>Spliff</title>
+<style type="text/css">
+div { padding: 10px; }
+</style>
+<meta charset="UTF-8">
 </head>
 <body>
-        <div class="container">
-        <div id="start-screen">
-            <div id="start" onclick="start()"></div>
-        </div>
-        <div id="bkg">
-            <div id="question-holder">
-                <div id="question"></div>
-                <div id="radio">
-                    <div class="pack">
-                        <input type="radio" name="spliff" value="a" />
-                        <label class="ans a"></label>
-                    </div>
-                    <div class="pack">
-                        <input type="radio" name="spliff" value="b" />
-                        <label class="ans b"></label>
-                    </div>
-                    <div class="pack">
-                        <input type="radio" name="spliff" value="c" />
-                        <label class="ans c"></label>
-                    </div>
-                    <div class="pack">
-                        <input type="radio" name="spliff" value="d" />
-                        <label class="ans d"></label>
-                    </div>
-                    <div class="pack">
-                        <input type="radio" name="spliff" value="e" />
-                        <label class="ans e"></label>
-                    </div>
-                </div>
-                <div id="missing"></div>
-            </div>
-            <div id="Z"></div>
-            <div id="neZ"></div>
-            <div id="next" onclick="next()"></div>
-        </div>
-    </div>
-    <script type="text/javascript" src="script.js"></script>
-</body>
-</html>
+<script type="text/javascript">
+  var fbAppId = '747185868693965';
+  var objectToLike = 'https://spliff.herokuapp.com/Z.php';
+
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : fbAppId, // App ID
+      status     : true,    // check login status
+      cookie     : true,    // enable cookies to allow the
+                            // server to access the session
+      xfbml      : true,     // parse page for xfbml or html5
+                            // social plugins like login button below
+      version        : 'v2.0',  // Specify an API version
+    });
+
+    // Put additional init code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  /*
+   * This function makes a call to the og.likes API.  The
+   * object argument is the object you like.  Other types
+   * of APIs may take other arguments. (i.e. the book.reads
+   * API takes a book= argument.)
+   *
+   * Because it's a sample, it also sets the privacy
+   * parameter so that it will create a story that only you
+   * can see.  Remove the privacy parameter and the story
+   * will be visible to whatever the default privacy was when
+   * you added the app.
+   *
+   * Also note that you can view any story with the id, as
+   * demonstrated with the code below.
+   *
+   * APIs used in postLike():
+   * Call the Graph API from JS:
+   *   https://developers.facebook.com/docs/reference/javascript/FB.api
+   * The Open Graph og.likes API:
+   *   https://developers.facebook.com/docs/reference/opengraph/action-type/og.likes
+   * Privacy argument:
+   *   https://developers.facebook.com/docs/reference/api/privacy-parameter
+   */
+
+  function postLike() {
+    FB.api(
+       'https://graph.facebook.com/me/og.likes',
+       'post',
+       { object: objectToLike,
+         privacy: {'value': 'SELF'} },
+       function(response) {
+         if (!response) {
+           alert('Error occurred.');
+         } else if (response.error) {
+           document.getElementById('result').innerHTML =
+             'Error: ' + response.error.message;
+         } else {
+           document.getElementById('result').innerHTML =
+             '<a href=\"https://www.facebook.com/me/activity/' +
+             response.id + '\">' +
+             'Story created.  ID is ' +
+             response.id + '</a>';
+         }
+       }
+    );
+  }
+</script>
+
+<!--
+  Login Button
+
+  https://developers.facebook.com/docs/reference/plugins/login
